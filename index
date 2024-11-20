@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моята страница</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+           background-color: #cccdd2;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%23838187' fill-opacity='0.62' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background-color: background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23214976' fill-opacity='0.84' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");     }
+        h1 {
+            color: #333;
+	    font-family: 'Times New Roman', serif;
+	}
+		p {
+        font-family: 'Times New Roman', serif; /* Задава шрифта на параграфа */
+	}
+	        #links {
+            display: flex;
+            flex-direction: column; /* Подравнява линковете вертикално */
+            align-items: center; /* Центрира линковете по хоризонтала */
+        }
+        a {
+            display: flex; /* Използваме flexbox за подравняване */
+            align-items: center; /* Центрира иконата и текста по вертикала */
+            justify-content: flex-start; /* Align items to the start */
+            margin: 10px 0;
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            padding: 5px; /* Добавя padding за по-добър вид */
+            width: 100%; /* Задава ширина на линка */
+            max-width: 300px; /* Ограничаваме ширината на линка */
+            border-radius: 5px; /* Добавяме заоблени ъгли за линка */
+            background-color: #f9f9f9; /* Лек фон за линка */
+        }
+        a:hover {
+            color: #ff5722;
+            background-color: #e0e0e0; /* Сив фон при hover */
+        }
+        a i {
+            font-size: 24px; /* Размер на иконите */
+            margin-right: 10px; /* Стандартно разстояние между иконата и текста */
+        }
+        /* Специфични цветове за Instagram, Facebook и имейл */
+        .instagram {
+            color: #E1306C; /* Instagram цвят */
+        }
+        .facebook {
+            color: #3b5998; /* Facebook цвят */
+        }
+        .phone {
+            color: #4CAF50; /* Зелен цвят за телефон */
+        }
+        .email {
+            color: #FF5722; /* Оранжев цвят за имейл */
+        }
+        img {
+            width: 135px;
+            height: 140px;
+            border-radius: 50%;
+	    margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="nfc7.png" alt="Профилна снимка">
+        <h1>Йордан Георгиев</h1>
+        <p>Тук можете да намерите всички мои контакти.</p>
+        
+        <div id="links"></div>
+    </div>
+
+    <script>
+        const contacts = [
+            { name: "Instagram", url: "https://www.instagram.com/georgiev_110/", class: "instagram" },
+            { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100022089821855&locale=bg_BG", icon: "fab fa-facebook", class: "facebook" },
+            { name: "Имейл", url: "mailto:jordan0402@abv.bg", icon: "fas fa-envelope", class: "email" }, // Иконата за имейл
+            { name: "Телефон", url: "tel:+359 882753201", icon: "fas fa-phone", class: "phone" } // Добавен клас за телефон
+        ];
+
+        const linksDiv = document.getElementById('links');
+        contacts.forEach(contact => {
+            const linkElement = document.createElement('a');
+            linkElement.href = contact.url;
+
+            linkElement.innerHTML = `<i class="${contact.icon} ${contact.class}"></i> ${contact.name}`; // Добавя клас за цвета
+            linksDiv.appendChild(linkElement);
+        });
+    </script>
+</body>
+</html>
